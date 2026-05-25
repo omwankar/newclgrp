@@ -1,0 +1,381 @@
+/* ============================================================
+   PREMIUM UI — Mesh, glass, neon, aurora, reveal
+   Pure CSS + pairs with ParticlesCanvas (vanilla JS)
+   ============================================================ */
+
+/* ── 7. Dark theme tokens ── */
+:root {
+  --clr-black: #0a0a0a;
+  --clr-dark: #0f0f13;
+  --clr-surface: #14141a;
+  --clr-card: #18181f;
+  --clr-border: rgba(255, 255, 255, 0.1);
+  --clr-white: #f1f5f9;
+  --clr-muted: #94a3b8;
+  --clr-accent: #6366f1;
+  --clr-accent-lt: #8b5cf6;
+  --premium-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background: var(--clr-black);
+  color: var(--clr-white);
+}
+
+body::after {
+  opacity: 0.45;
+}
+
+.label {
+  color: var(--clr-accent-lt);
+}
+
+.text-muted {
+  color: var(--clr-muted);
+}
+
+/* ── Site layering (particles + aurora behind content) ── */
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: contents;
+}
+
+.aurora-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.site-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 5. Aurora blobs ── */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  will-change: transform;
+}
+
+.aurora-blob-1 {
+  width: 420px;
+  height: 420px;
+  top: 8%;
+  left: -8%;
+  background: #6366f1;
+  animation: auroraFloat1 22s ease-in-out infinite;
+}
+
+.aurora-blob-2 {
+  width: 360px;
+  height: 360px;
+  top: 45%;
+  right: -6%;
+  background: #06b6d4;
+  animation: auroraFloat2 26s ease-in-out infinite;
+}
+
+.aurora-blob-3 {
+  width: 300px;
+  height: 300px;
+  bottom: 10%;
+  left: 35%;
+  background: #f43f5e;
+  animation: auroraFloat3 20s ease-in-out infinite;
+}
+
+@keyframes auroraFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, 40px) scale(1.08); }
+  66% { transform: translate(-30px, 70px) scale(0.95); }
+}
+
+@keyframes auroraFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-70px, -50px) scale(1.1); }
+}
+
+@keyframes auroraFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(50px, -60px) scale(1.06); }
+  80% { transform: translate(-40px, 30px) scale(0.92); }
+}
+
+/* ── 1. Hero mesh gradient ── */
+.hero-mesh-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  opacity: 0.42;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.page-hero-mesh {
+  z-index: 1;
+  opacity: 0.35;
+}
+
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-aurora {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-aurora::before {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 10%;
+  right: 5%;
+  border-radius: 50%;
+  background: #6366f1;
+  filter: blur(80px);
+  opacity: 0.22;
+  pointer-events: none;
+  animation: auroraFloat2 24s ease-in-out infinite;
+}
+
+/* ── 3. Glassmorphism cards ── */
+.glass-card,
+.pillar,
+.info-card,
+.stat-bar-item,
+.leadership-card,
+.office-card,
+.partnership-card,
+.value-card,
+.mission-card,
+.regional-stat-card,
+.contact-form-card,
+.news-card-body,
+.related-card,
+.hero-stat-chip,
+.about-accent-card,
+.ecosystem-item,
+.location-item {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+.glass-card:hover,
+.pillar:hover,
+.info-card:hover,
+.stat-bar-item:hover,
+.leadership-card:hover,
+.office-card:hover,
+.partnership-card:hover,
+.value-card:hover,
+.mission-card:hover,
+.regional-stat-card:hover,
+.related-card:hover,
+.ecosystem-item:hover,
+.location-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.news-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ── 4. Neon glow primary buttons ── */
+.btn-gold,
+.btn-neon,
+.nav-cta.btn-gold {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: #fff !important;
+  padding: 12px 28px;
+  border: none !important;
+  border-radius: 50px !important;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover,
+.btn-neon:hover,
+.nav-cta.btn-gold:hover {
+  background: linear-gradient(135deg, #7c7ff7, #9d72f8) !important;
+  box-shadow: 0 0 35px rgba(99, 102, 241, 0.9);
+  transform: scale(1.05);
+}
+
+.btn-gold::before {
+  display: none;
+}
+
+.stat-num,
+.hero-stat-value,
+.stat-bar-value {
+  color: var(--clr-accent-lt);
+}
+
+.gold-text {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── 6. Scroll reveal (premium) ── */
+.reveal,
+.reveal-left,
+.reveal-right,
+.premium-reveal,
+.glass-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s var(--premium-ease);
+  will-change: transform, opacity;
+}
+
+/* Headings inside a revealed block inherit visibility — avoid double-hide */
+.reveal h2,
+.reveal h3,
+.reveal .display-lg,
+.reveal .display-md {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.cta-tubes-section h2.display-lg,
+.cta-tubes-section h2.display-md {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-left {
+  transform: translateY(30px) translateX(-24px);
+}
+
+.reveal-right {
+  transform: translateY(30px) translateX(24px);
+}
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.premium-reveal.visible,
+.glass-card.visible {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Scroll progress accent */
+#sd-scroll-progress {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.6);
+}
+
+/* Navbar glass on scroll */
+#navbar.scrolled {
+  background: rgba(10, 10, 10, 0.82) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sd-nav .nav-link.active,
+.sd-nav .nav-link:hover {
+  color: var(--clr-accent-lt);
+}
+
+.sd-nav .nav-link::after {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+/* Marquee premium tint */
+.marquee-wrap {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+.marquee-wrap::before {
+  background: linear-gradient(90deg, #6366f1, transparent);
+}
+
+.marquee-wrap::after {
+  background: linear-gradient(270deg, #8b5cf6, transparent);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-mesh-gradient,
+  .aurora-blob,
+  .section-aurora::before {
+    animation: none !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .premium-reveal,
+  .glass-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn-gold:hover,
+  .btn-neon:hover {
+    transform: none;
+  }
+
+  .glass-card:hover,
+  .pillar:hover,
+  .info-card:hover,
+  .news-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .aurora-blob-1 { width: 260px; height: 260px; }
+  .aurora-blob-2 { width: 220px; height: 220px; }
+  .aurora-blob-3 { width: 180px; height: 180px; }
+
+  .hero-mesh-gradient {
+    opacity: 0.55;
+  }
+}

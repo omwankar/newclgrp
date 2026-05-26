@@ -175,7 +175,6 @@ export default function GlobalPage() {
               Freight Services
             </Link>
           </div>
-          <p className="cta-tubes-hint">Move cursor to interact · Click to shift colors</p>
       </CtaSection>
 
       <Footer />

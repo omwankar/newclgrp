@@ -319,7 +319,6 @@ export default function AboutPage() {
               Explore Our Companies
             </Link>
           </div>
-          <p className="cta-tubes-hint">Move cursor to interact · Click to shift colors</p>
       </CtaSection>
 
       <Footer />

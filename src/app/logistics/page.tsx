@@ -310,7 +310,6 @@ export default function LogisticsPage() {
               Clarusto Technology →
             </Link>
           </p>
-          <p className="cta-tubes-hint">Move cursor to interact · Click to shift colors</p>
       </CtaSection>
 
       <Footer />

@@ -92,7 +92,6 @@ export default function InsightsPage() {
               Subscribe
             </button>
           </div>
-          <p className="cta-tubes-hint">Move cursor to interact · Click to shift colors</p>
       </CtaSection>
 
       <Footer />

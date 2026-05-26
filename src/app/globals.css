@@ -20,7 +20,7 @@
   --clr-logi:     #1DB86B;
   --clr-logi-lt:  #4DDEA0;
 
-  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-display: var(--font-dm-sans), Arial, sans-serif;
   --font-body:    var(--font-dm-sans), sans-serif;
 
   --radius-sm:    4px;
@@ -93,14 +93,14 @@ body::after {
 .display-xl {
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 8vw, 7.5rem);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.05;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 .display-lg {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.1;
 }
 .display-md {
@@ -271,7 +271,7 @@ body::after {
   opacity: 0; transform: translateY(30px);
   animation: fadeUp 1s var(--ease-out) 0.4s forwards;
 }
-.hero-title em { color: var(--clr-gold); font-style: italic; }
+.hero-title em { color: var(--clr-gold); font-style: normal; font-weight: 500; }
 .hero-desc {
   max-width: 600px;
   margin-bottom: 3rem;
@@ -540,29 +540,33 @@ body::after {
 .company-card {
   position: relative;
   overflow: hidden;
-  min-height: 600px;
+  min-height: clamp(620px, 52vw, 760px);
   display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 3rem;
+  padding: clamp(2.25rem, 4vw, 4.5rem);
 }
 .company-card::before {
   content: ''; position: absolute; inset: 0;
   transition: opacity 0.6s var(--ease-out);
 }
 .company-card-tech::before {
-  background: linear-gradient(135deg, rgba(30,111,217,0.15) 0%, rgba(8,10,14,0.9) 60%),
-              linear-gradient(0deg, var(--clr-black) 0%, transparent 60%);
+  background:
+    linear-gradient(90deg, rgba(8,10,14,0.96) 0%, rgba(8,10,14,0.74) 44%, rgba(8,10,14,0.16) 100%),
+    linear-gradient(0deg, rgba(8,10,14,0.98) 0%, rgba(8,10,14,0.28) 58%, transparent 100%),
+    linear-gradient(135deg, rgba(30,111,217,0.22) 0%, transparent 62%);
 }
 .company-card-logi::before {
-  background: linear-gradient(135deg, rgba(29,184,107,0.15) 0%, rgba(8,10,14,0.9) 60%),
-              linear-gradient(0deg, var(--clr-black) 0%, transparent 60%);
+  background:
+    linear-gradient(90deg, rgba(8,10,14,0.96) 0%, rgba(8,10,14,0.74) 44%, rgba(8,10,14,0.16) 100%),
+    linear-gradient(0deg, rgba(8,10,14,0.98) 0%, rgba(8,10,14,0.28) 58%, transparent 100%),
+    linear-gradient(135deg, rgba(29,184,107,0.22) 0%, transparent 62%);
 }
 .company-card-bg {
   position: absolute; inset: 0;
   transition: transform 0.8s var(--ease-out);
 }
-.company-card-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.5) saturate(0.6); }
+.company-card-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.62) saturate(0.72); }
 .company-card:hover .company-card-bg { transform: scale(1.05); }
-.company-card-content { position: relative; z-index: 2; }
+.company-card-content { position: relative; z-index: 2; max-width: 560px; }
 .company-tag {
   display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.3rem 0.8rem;
@@ -575,9 +579,10 @@ body::after {
 }
 .company-tag-tech { background: rgba(30,111,217,0.2); border: 1px solid rgba(77,155,255,0.3); color: var(--clr-tech-lt); }
 .company-tag-logi { background: rgba(29,184,107,0.2); border: 1px solid rgba(77,222,160,0.3); color: var(--clr-logi-lt); }
-.company-card h3 { font-family: var(--font-display); font-size: 2.8rem; font-weight: 300; margin-bottom: 0.5rem; }
-.company-card .sub { font-size: 0.78rem; color: var(--clr-muted); letter-spacing: 0.05em; margin-bottom: 1rem; }
-.company-card p { font-size: 0.9rem; color: rgba(245,240,232,0.7); margin-bottom: 1.5rem; max-width: 420px; }
+.company-card h3 { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 4.1rem); font-weight: 500; line-height: 0.98; margin-bottom: 0.85rem; }
+.company-card h3 em { font-style: normal; font-weight: 500; }
+.company-card .sub { font-size: 0.82rem; color: rgba(245,240,232,0.82); letter-spacing: 0.04em; margin-bottom: 1rem; }
+.company-card p { font-size: 0.96rem; line-height: 1.72; color: rgba(245,240,232,0.82); margin-bottom: 1.5rem; max-width: 520px; }
 .company-services {
   display: flex; flex-wrap: wrap; gap: 0.5rem;
   margin-bottom: 2rem;
@@ -592,7 +597,7 @@ body::after {
   transition: all 0.3s;
 }
 .company-card:hover .service-chip { border-color: rgba(255,255,255,0.15); color: var(--clr-white); }
-.company-card-actions { display: flex; align-items: center; gap: 1rem; }
+.company-card-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
 .company-card-number {
   position: absolute; top: 2rem; right: 2rem; z-index: 2;
   font-family: var(--font-display);
@@ -885,6 +890,17 @@ footer {
   .news-card-featured .news-card-img img { aspect-ratio: 16/9; }
   .news-card-featured h4 { font-size: 1.3rem; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+
+@media (max-width: 1100px) {
+  .companies-grid { grid-template-columns: 1fr; gap: 1px; }
+  .company-card { min-height: 560px; }
+  .company-card-tech::before,
+  .company-card-logi::before {
+    background:
+      linear-gradient(90deg, rgba(8,10,14,0.96) 0%, rgba(8,10,14,0.8) 52%, rgba(8,10,14,0.2) 100%),
+      linear-gradient(0deg, rgba(8,10,14,0.98) 0%, rgba(8,10,14,0.34) 62%, transparent 100%);
+  }
 }
 .nav-actions { display: flex; align-items: center; gap: 1rem; }
 .loader-subtitle { font-size: 0.6rem; letter-spacing: 0.25em; color: var(--clr-gold); text-transform: uppercase; margin-bottom: 1.5rem; }

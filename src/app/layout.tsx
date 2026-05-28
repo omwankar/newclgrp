@@ -44,6 +44,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  icons: {
+    icon: [{ url: siteConfig.brand.logo, type: "image/png" }],
+    apple: siteConfig.brand.logo,
+    shortcut: siteConfig.brand.logo,
+  },
 };
 
 export default function RootLayout({
@@ -53,12 +58,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={dmSans.variable}>
-      <head>
-        <link
-          rel="icon"
-          href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23080A0E'/><text x='50%25' y='50%25' font-size='18' text-anchor='middle' dominant-baseline='central' fill='%23C9A84C' font-family='Georgia'>C</text></svg>"
-        />
-      </head>
       <body>{children}</body>
     </html>
   );

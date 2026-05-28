@@ -1,32 +1,31 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 import { navLinks } from "@/lib/site-config";
 
 type NavbarProps = {
-  logoSuffix?: string;
   links?: { href: string; label: string; section?: string }[];
   ctaHref?: string;
   ctaLabel?: string;
   ctaClass?: string;
   activePath?: string;
   showHamburger?: boolean;
+  logoHeight?: number;
 };
 
 export function Navbar({
-  logoSuffix = "GROUP",
   links = [...navLinks],
   ctaHref = "/contact",
   ctaLabel = "Get in Touch",
   ctaClass = "btn btn-gold",
   activePath,
   showHamburger = true,
+  logoHeight = 34,
 }: NavbarProps) {
   return (
     <nav id="navbar">
       <div className="container">
         <div className="nav-inner">
-          <Link href="/" className="nav-logo">
-            CLARUSTO<span>{logoSuffix}</span>
-          </Link>
+          <Logo height={logoHeight} priority />
           <div className="nav-links sd-nav">
             {links.map((link) => (
               <Link

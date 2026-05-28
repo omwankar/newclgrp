@@ -89,7 +89,6 @@ export default function TechnologyPage() {
         { href: "#contact", label: "Contact" },
       ]}
       navbarProps={{
-        logoSuffix: "TECHNOLOGY",
         links: [
           { href: "#services", label: "Services" },
           { href: "#process", label: "Process" },

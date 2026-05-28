@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/ui/Logo";
 
 export function Loader({ subtitle = "Group" }: { subtitle?: string }) {
   const [pct, setPct] = useState(0);
@@ -23,7 +24,7 @@ export function Loader({ subtitle = "Group" }: { subtitle?: string }) {
   return (
     <div id="loader" className={hidden ? "hidden" : ""}>
       <div className="loader-inner">
-        <div className="loader-logo">CLARUSTO</div>
+        <Logo height={56} href="" className="loader-brand-logo" />
         <div className="loader-subtitle">{subtitle}</div>
         <div className="loader-bar" />
         <div className="loader-pct">{Math.floor(pct)}%</div>
@@ -124,6 +125,9 @@ export function MobileMenu({
       >
         ✕
       </button>
+      <div className="mobile-menu-brand">
+        <Logo height={40} />
+      </div>
       {links.map((link) => (
         <a
           key={link.href}

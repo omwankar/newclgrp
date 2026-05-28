@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
@@ -7,9 +8,7 @@ export function Footer() {
       <div className="container">
         <div className="footer-top">
           <div className="footer-brand">
-            <div className="nav-logo footer-logo">
-              CLARUSTO<span>GROUP</span>
-            </div>
+            <Logo height={40} className="footer-brand-logo" />
             <p>
               Building Global Solutions Through Technology, Logistics &amp;
               Innovation. Connecting businesses across six international

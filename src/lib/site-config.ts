@@ -4,6 +4,9 @@ export const siteConfig = {
   description:
     "Clarusto Group is a globally connected business ecosystem delivering specialised solutions across technology and international logistics industries.",
   ogImage: "https://clarusto.com/og-image.jpg",
+  brand: {
+    logo: "/clarusto-logo.png",
+  },
   links: {
     technology: "https://clarusto.co.uk",
     logistics: "https://clarustologistics.com",

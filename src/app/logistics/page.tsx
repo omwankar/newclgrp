@@ -75,7 +75,6 @@ export default function LogisticsPage() {
         { href: "#contact", label: "Contact" },
       ]}
       navbarProps={{
-        logoSuffix: "LOGISTICS",
         links: [
           { href: "#services", label: "Services" },
           { href: "#routes", label: "Trade Routes" },
